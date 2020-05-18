@@ -1,0 +1,7 @@
+{
+  "name": "projetoIonicFrontEnd",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
