@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
 
 
 @Component({
@@ -8,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomePage implements OnInit {
 
-  constructor() { }
+  constructor(public navCtrl: NavController) { 
+
+  }
 
   ngOnInit() {
+  }
+
+  login(){
+    //vai empilhar a pagina em cima da outra
+    
+    this.navCtrl.navigateRoot('categorias');
+  }
+
+  back(){
+
   }
 
 }
