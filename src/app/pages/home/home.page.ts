@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController } from '@ionic/angular';
+import { NavController, MenuController } from '@ionic/angular';
 
 
 @Component({
@@ -9,12 +9,20 @@ import { NavController } from '@ionic/angular';
 })
 export class HomePage implements OnInit {
 
-  constructor(public navCtrl: NavController) { 
+  constructor(public navCtrl: NavController, public menu :MenuController) { 
 
   }
 
   ngOnInit() {
   }
+
+  ionViewWillEnter(){
+    this.menu.swipeGesture(false);
+  }
+  ionViewDidLeave(){
+    this.menu.swipeGesture(true);
+  }
+
 
   login(){
     //vai empilhar a pagina em cima da outra
@@ -22,8 +30,5 @@ export class HomePage implements OnInit {
     this.navCtrl.navigateRoot('categorias');
   }
 
-  back(){
-
-  }
-
+  
 }
