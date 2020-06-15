@@ -18,7 +18,8 @@ export class CategoriaService{
  
     let headers = new HttpHeaders();
     headers = headers.set('Content-Type', 'application/json; charset=utf-8');
-        return this.http.get<CategoriaDTO[]>(`${API_CONFIG.baseUrl}/categorias`, {headers: new HttpHeaders({'Authorization': 'Bearer ' + this.token})});
+    //, {headers: new HttpHeaders({'Authorization': 'Bearer ' + this.token})}
+        return this.http.get<CategoriaDTO[]>(`${API_CONFIG.baseUrl}/categorias`);
         
     }   
 }

@@ -15,12 +15,15 @@
 <ion-content padding>
  
   <ion-list>
-  <button ion-item>
+    
+  <button ion-item *ngFor="let item of items">
+    <ion-item>
     <ion-thumbnail slot="start">
-      <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+      <img src="{{bucketUrl}}cat{{item.id}}.jpg">
      
     </ion-thumbnail>
-    <h2>Teste</h2>
+    <h2>{{item.nome}}</h2>
+  </ion-item>
   </button>
 
 </ion-list>
