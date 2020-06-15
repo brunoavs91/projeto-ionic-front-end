@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController, MenuController } from '@ionic/angular';
 import { CredenciaisDTO } from 'src/models/credenciais.dto';
+import { AuthService } from 'src/services/auth.service';
 
 
 @Component({
@@ -15,7 +16,10 @@ export class HomePage implements OnInit {
     senha: ""
   };
 
-  constructor(public navCtrl: NavController, public menu :MenuController) { 
+  constructor(
+    public navCtrl: NavController,
+    public menu :MenuController,
+    public auth :AuthService ) { 
 
   }
 
@@ -31,9 +35,15 @@ export class HomePage implements OnInit {
 
 
   login(){
+    this.auth.authenticate(this.creds)
+    .subscribe(response =>{
+      console.log(response.headers.get('Authorization'));
+      this.navCtrl.navigateRoot('categorias');
+
+    },
+    erro =>{});
     //vai empilhar a pagina em cima da outra
     console.log(this.creds);
-    this.navCtrl.navigateRoot('categorias');
   }
 
   

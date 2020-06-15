@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { CategoriaService } from 'src/services/domain/categoria.service';
 import { ErrorInterceptor } from 'src/interceptors/error-interceptor';
+import { AuthService } from 'src/services/auth.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -29,7 +30,8 @@ import { ErrorInterceptor } from 'src/interceptors/error-interceptor';
       provide: HTTP_INTERCEPTORS,
       useClass: ErrorInterceptor,
       multi: true
-    }
+    },
+    AuthService
   ],
   bootstrap: [AppComponent]
 })
