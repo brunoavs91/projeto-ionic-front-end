@@ -21,9 +21,7 @@ export class CategoriasPage implements OnInit {
       this.items = response;
       
     },
-    error =>{
-      console.log(error);
-    });
+    error =>{});
   }
 
   ionViewDidLoad() {
