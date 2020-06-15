@@ -43,7 +43,7 @@ export class HomePage implements OnInit {
     },
     erro =>{});
     //vai empilhar a pagina em cima da outra
-    console.log(this.creds);
+    
   }
 
   
