@@ -12,8 +12,10 @@ export class CategoriasPage implements OnInit {
 
   bucketUrl : string = API_CONFIG.bucketBaseUrl;
   items : CategoriaDTO[];
-
+  
   constructor(public categoriaService : CategoriaService) { }
+
+
 
   ngOnInit() {
     this.categoriaService.findAll().subscribe(response =>{
@@ -25,7 +27,7 @@ export class CategoriasPage implements OnInit {
   }
 
   ionViewDidLoad() {
-    
+  
   }
 
 }
