@@ -29,14 +29,20 @@ export class ClienteService {
             'Authorization' : 'Bearer ' +  token,
             'Accept': 'application/json',
             'Content-Type': 'application/json; charset=utf-8'
-          }),
-          responseType: 'text'
+          })
         };
         
        
        return this.http.get<ClienteDTO>(
            `${API_CONFIG.baseUrl}/clientes/email?value=${email}`, httpOptions);
            
-          
+        
+    }
+
+    getImageFromBucket(id : string) : Observable<any> {
+      let url = `${API_CONFIG.bucketBaseUrl}/cp${id}.jpg`;
+     // let headers = new HttpHeaders({'Content-Type': 'multipart/form-data'});
+       
+      return this.http.get(url, {responseType :'blob'});
     }
 }

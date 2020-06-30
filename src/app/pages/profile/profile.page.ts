@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ClienteDTO } from 'src/models/cliente.dto';
 import { StorageService } from 'src/services/storage.service';
 import { ClienteService } from 'src/services/domain/cliente.service';
+import { defaultThrottleConfig } from 'rxjs/internal/operators/throttle';
+import { API_CONFIG } from 'src/config/api.config';
 
 @Component({
   selector: 'app-profile',
@@ -10,7 +12,7 @@ import { ClienteService } from 'src/services/domain/cliente.service';
 })
 export class ProfilePage implements OnInit {
 
-  cliente: ClienteDTO;
+  cliente = {} as ClienteDTO;
   
 
   constructor(public storage: StorageService,
@@ -22,14 +24,23 @@ export class ProfilePage implements OnInit {
     let localUser = this.storage.getLocalUser();
     if(localUser && localUser.email){
       this.clienteService.findByEmail(localUser.email).subscribe(response =>{
-        console.log(response);
-        this.cliente = response;
-        console.log(this.cliente);
-        
+       
+        this.cliente =response;
+        this.getImageIfExists();
+           
                 //buscar imagem do bucket
       },
       erro =>{})
     }
+  }
+
+  getImageIfExists(){
+    this.clienteService.getImageFromBucket(this.cliente.id)
+    .subscribe(response =>{
+      console.log(response);
+      this.cliente.imageUrl =`${API_CONFIG.bucketBaseUrl}/cp${this.cliente.id}.jpg`;
+    },
+     erro =>{})
   }
 
   ionViewDidLoad() {
