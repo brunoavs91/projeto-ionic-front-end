@@ -10,7 +10,7 @@ export class CategoriaService{
     token :any;
 
     constructor(public http: HttpClient){
-        this.token ='eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJicnVub2F2OTFAZ21haWwuY29tIiwiZXhwIjoxNTkwNDQ3Mjc4fQ.NYD7XhgeqcKpsa4Rc8Pb4cpwSWOuFaQi1Q2AEwelRj-kZ6_PVFyv1Cv0028_xe1AQ-kTfTYXkzNY1n1rTWFsgQ'
+       
     }
 
     findAll() : Observable<CategoriaDTO[]> {

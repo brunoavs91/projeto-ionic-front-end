@@ -21,20 +21,20 @@ export class ClienteService {
     }
 
     findByEmail(email : string) : Observable<ClienteDTO>{
-        let token = this.storage.getLocalUser().token;
+       // let token = this.storage.getLocalUser().token;
         
      
-        const httpOptions : Object = {
-          headers: new HttpHeaders({
-            'Authorization' : 'Bearer ' +  token,
-            'Accept': 'application/json',
-            'Content-Type': 'application/json; charset=utf-8'
-          })
-        };
+    //    const httpOptions : Object = {
+      //    headers: new HttpHeaders({
+        //    'Authorization' : 'Bearer ' +  token,
+          //  'Accept': 'application/json',
+           // 'Content-Type': 'application/json; charset=utf-8'
+         // })
+        //};
         
        
        return this.http.get<ClienteDTO>(
-           `${API_CONFIG.baseUrl}/clientes/email?value=${email}`, httpOptions);
+           `${API_CONFIG.baseUrl}/clientes/email?value=${email}`);
            
         
     }
