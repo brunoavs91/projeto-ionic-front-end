@@ -4,6 +4,8 @@ import { StorageService } from 'src/services/storage.service';
 import { ClienteService } from 'src/services/domain/cliente.service';
 import { defaultThrottleConfig } from 'rxjs/internal/operators/throttle';
 import { API_CONFIG } from 'src/config/api.config';
+import { error } from 'protractor';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-profile',
@@ -16,7 +18,8 @@ export class ProfilePage implements OnInit {
   
 
   constructor(public storage: StorageService,
-    public clienteService : ClienteService) { 
+    public clienteService : ClienteService,
+    public navCtrl: NavController) { 
       
     }
 
@@ -30,7 +33,15 @@ export class ProfilePage implements OnInit {
            
                 //buscar imagem do bucket
       },
-      erro =>{})
+      error =>{
+
+        if(error.status == 403){
+          this.navCtrl.navigateRoot("home");
+        }
+      });
+    }
+    else{
+      this.navCtrl.navigateRoot("home");
     }
   }
 
@@ -40,7 +51,7 @@ export class ProfilePage implements OnInit {
       console.log(response);
       this.cliente.imageUrl =`${API_CONFIG.bucketBaseUrl}/cp${this.cliente.id}.jpg`;
     },
-     erro =>{})
+     error =>{})
   }
 
   ionViewDidLoad() {
