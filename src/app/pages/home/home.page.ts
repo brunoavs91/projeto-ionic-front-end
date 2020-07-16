@@ -24,6 +24,14 @@ export class HomePage implements OnInit {
   }
 
   ngOnInit() {
+
+    this.auth.refreshToken()
+    .subscribe(response =>{
+      this.auth.successFullLogin(response.headers.get('Authorization'));
+      this.navCtrl.navigateRoot('categorias');
+
+    },
+    erro =>{});
   }
 
   ionViewWillEnter(){
@@ -31,6 +39,14 @@ export class HomePage implements OnInit {
   }
   ionViewDidLeave(){
     this.menu.swipeGesture(true);
+  }
+
+  ionViewDidiEnter(){
+
+    
+    //vai empilhar a pagina em cima da outra
+    
+  
   }
 
 
