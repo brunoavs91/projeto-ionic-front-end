@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NavController, MenuController } from '@ionic/angular';
 import { CredenciaisDTO } from 'src/models/credenciais.dto';
 import { AuthService } from 'src/services/auth.service';
+import { StorageService } from 'src/services/storage.service';
 
 
 @Component({
@@ -16,22 +17,28 @@ export class HomePage implements OnInit {
     senha: ""
   };
 
+
   constructor(
     public navCtrl: NavController,
     public menu :MenuController,
-    public auth :AuthService ) { 
+    public auth :AuthService ,
+    public storage : StorageService) { 
 
   }
 
   ngOnInit() {
 
-    this.auth.refreshToken()
-    .subscribe(response =>{
-      this.auth.successFullLogin(response.headers.get('Authorization'));
-      this.navCtrl.navigateRoot('categorias');
+    if(this.storage.getLocalUser === undefined){
 
-    },
-    erro =>{});
+      this.auth.refreshToken()
+      .subscribe(response =>{
+        this.auth.successFullLogin(response.headers.get('Authorization'));
+        this.navCtrl.navigateRoot('categorias');
+  
+      },
+      erro =>{});
+    }
+    console.log("nenhum usuario logado");
   }
 
   ionViewWillEnter(){

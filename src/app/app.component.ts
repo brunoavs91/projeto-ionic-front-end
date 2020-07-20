@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Platform } from '@ionic/angular';
+import { Platform, NavController } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { AuthService } from 'src/services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -21,14 +22,17 @@ export class AppComponent implements OnInit {
       title: 'Categoria',
       url: 'categorias',
       icon: 'home'
-    }
+    },
+    {title: 'Logout',  url: '',  icon: '' }
   ];
   
 
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
-    private statusBar: StatusBar
+    private statusBar: StatusBar,
+    public authService : AuthService,
+    public navCtrl: NavController
   ) {
     this.initializeApp();
   }
@@ -41,9 +45,24 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    const path = window.location.pathname.split('home/')[1];
+ /*   const path = window.location.pathname.split('home/')[1];
     if (path !== undefined) {
-      this.selectedIndex = this.appPages.findIndex(page => page.title.toLowerCase() === path.toLowerCase());
+       this.selectedIndex = this.appPages.findIndex(page => page.title.toLowerCase() === path.toLowerCase());
+    } */
+    this.navCtrl.navigateRoot("home");
+  }
+
+  openPage(page : {title :string, url:string}){
+
+    switch(page.title){
+      case 'Logout' :
+        console.log("Teste logout");
+        this.authService.logout();
+        this.navCtrl.navigateRoot("home");
+        break;
+
+        default :
+        this.navCtrl.navigateRoot(page.url);
     }
   }
 }
