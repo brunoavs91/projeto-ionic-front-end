@@ -28,7 +28,7 @@ export class HomePage implements OnInit {
 
   ngOnInit() {
 
-    if(this.storage.getLocalUser === undefined){
+    if(this.storage.getLocalUser === undefined || this.storage.getLocalUser === null){
 
       this.auth.refreshToken()
       .subscribe(response =>{
@@ -67,6 +67,11 @@ export class HomePage implements OnInit {
     erro =>{});
     //vai empilhar a pagina em cima da outra
     
+  }
+
+  signup(){
+    this.navCtrl.navigateBack("signup");
+   // this.navCtrl.navigateForward("signup");
   }
 
   
