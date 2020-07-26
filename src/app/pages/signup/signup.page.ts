@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController, MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-signup',
@@ -7,13 +8,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SignupPage implements OnInit {
 
-  constructor() { }
+  constructor( public navCtrl: NavController,
+    public menu :MenuController) { }
 
   ngOnInit() {
   }
 
+  ionViewWillEnter(){
+    this.menu.swipeGesture(false);
+  }
+  ionViewDidLeave(){
+    this.menu.swipeGesture(true);
+  }
+
   signupUser(){
-    console.log("envio o form")
+    console.log("enviou o form");
+  }
+
+  backHome(){
+    this.navCtrl.navigateRoot('home');
   }
 
 }

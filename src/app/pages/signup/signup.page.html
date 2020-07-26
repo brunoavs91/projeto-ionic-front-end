@@ -6,7 +6,7 @@
 
 <ion-content>
 
-  <form (ngSubmit)= "signupUser(); $event.preventDefault()">
+  <form  (ngSubmit)="signupUser(); $event.preventDefault()">
     
     <ion-item>
       <ion-label stacked>Nome</ion-label>
@@ -110,7 +110,7 @@
           </ion-select>
       </ion-item>
 
-      <ion-button expand="block" >Criar Usuario</ion-button>
+      <ion-button expand="block" type ="submit" (click)="backHome()">Criar Usuario</ion-button>
 
 
 
