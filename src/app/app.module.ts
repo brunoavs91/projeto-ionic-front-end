@@ -14,16 +14,20 @@ import { AuthService } from 'src/services/auth.service';
 import { StorageService } from 'src/services/storage.service';
 import { ClienteService } from 'src/services/domain/cliente.service';
 import { AuthInterceptorProvider } from 'src/interceptors/auth.interceptor';
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule} from '@angular/forms';
+import { SignupPage } from './pages/signup/signup.page';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, SignupPage],
   entryComponents: [],
   imports: [
     BrowserModule,
     HttpClientModule,
     IonicModule.forRoot(),
     AppRoutingModule,
-    
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [
     StatusBar,
@@ -31,6 +35,7 @@ import { AuthInterceptorProvider } from 'src/interceptors/auth.interceptor';
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     CategoriaService,
     AuthInterceptorProvider,
+    
     {
       provide: HTTP_INTERCEPTORS,
       useClass: ErrorInterceptor,
