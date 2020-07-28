@@ -28,7 +28,7 @@ export class SignupPage implements OnInit {
     nome :['', [Validators.required, Validators.minLength(5), Validators.maxLength(120)]],
     email : ['', [Validators.required, Validators.email]],
     tipo : ['1', [Validators.required]],
-    cpfOuCnpj : ['', [Validators.required, Validators.min(11), Validators.max(14)]],
+    cpfOuCnpj : ['', [Validators.required, Validators.minLength(11), Validators.maxLength(14)]],
     senha : ['123', [Validators.required]],
     logradouro : ['Rua Teste', [Validators.required]],
     numero : ['25', [Validators.required]],
@@ -55,6 +55,7 @@ export class SignupPage implements OnInit {
 
   }
   updateCidades(){
+    console.log(this.formGroup);
     console.log("Buscando Cidades");
    let estado_id = this.formGroup.value.estadoId;
    this.cidadeService.findAll(estado_id)
@@ -73,7 +74,7 @@ export class SignupPage implements OnInit {
   }
 
   signupUser(){
-    console.log("enviou o form");
+    console.log(this.formGroup.value);
   }
 
   backHome(){

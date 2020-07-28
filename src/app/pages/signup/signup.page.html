@@ -114,7 +114,7 @@
           </ion-select>
       </ion-item>
 
-      <ion-button expand="block" type ="submit" (click)="backHome()" [disabled] ="formGroup.invalid">Criar Usuario</ion-button>
+      <ion-button expand="block" type ="submit" (click)="backHome()" [disabled] ="!formGroup.valid">Criar Usuario</ion-button>
 
 
 
