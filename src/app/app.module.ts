@@ -17,6 +17,8 @@ import { AuthInterceptorProvider } from 'src/interceptors/auth.interceptor';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule} from '@angular/forms';
 import { SignupPage } from './pages/signup/signup.page';
+import { EstadoService } from 'src/services/domain/estado.service';
+import { CidadeService } from 'src/services/domain/cidade.service';
 
 @NgModule({
   declarations: [AppComponent, SignupPage],
@@ -43,7 +45,9 @@ import { SignupPage } from './pages/signup/signup.page';
     },
     AuthService,
     StorageService,
-    ClienteService
+    ClienteService,
+    EstadoService,
+    CidadeService
   ],
   bootstrap: [AppComponent]
 })

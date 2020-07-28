@@ -95,8 +95,8 @@
         <ion-label stacked>Estado</ion-label>
         <ion-select class="custom-options"name="estadoId" (ionChange) = "updateCidades()">
       
-          <ion-select-option value="1">Minas Gerais</ion-select-option>
-          <ion-select-option value="2">Sao Paulo</ion-select-option>
+          <ion-select-option *ngFor="let estado of estados; first as f" [value]="estado.id" [selected]="f">{{estado.nome}}</ion-select-option>
+          
           </ion-select>
       </ion-item>
 
@@ -105,8 +105,8 @@
       <ion-item>
         <ion-label stacked>Cidade</ion-label>
         <ion-select class="custom-options" name="cidadeId">
-          <ion-select-option value="1">Uberlandia</ion-select-option>
-          <ion-select-option value="2">Campinas</ion-select-option>
+          
+          <ion-select-option *ngFor="let cidade of cidades" [value]="cidade.id">{{cidade.nome}}</ion-select-option>
           </ion-select>
       </ion-item>
 
