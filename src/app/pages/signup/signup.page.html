@@ -13,11 +13,13 @@
       <ion-input  formControlName="nome" type="text"></ion-input>
     </ion-item>
 
+  <p class="danger" *ngIf="formGroup.controls.nome.dirty && !formGroup.controls.nome.valid">Valor inválido</p>
      
     <ion-item>
       <ion-label stacked>Email</ion-label>
       <ion-input formControlName="email" type="text"></ion-input>
     </ion-item>
+    <p class="danger" *ngIf="formGroup.controls.email.dirty && !formGroup.controls.email.valid" margin-left>Valor inválido</p>   
 
     <ion-list>
       <ion-radio-group formControlName="tipo">
@@ -44,43 +46,45 @@
         <ion-input formControlName="cpfOuCnpj" type="text"></ion-input>
       </ion-item>
 
+      <p class="danger" *ngIf="formGroup.controls.cpfOuCnpj.dirty && !formGroup.controls.cpfOuCnpj.valid" margin-left>Valor inválido</p>
       <ion-item>
         <ion-label stacked>Senha</ion-label>
         <ion-input formControlName="senha" type="password"></ion-input>
       </ion-item>
-
+  <p class="danger" *ngIf="formGroup.controls.senha.dirty && !formGroup.controls.senha.valid" margin-left>Valor inválido</p>
       <ion-item>
         <ion-label stacked>Logradouro</ion-label>
         <ion-input formControlName="logradouro" type="text"></ion-input>
       </ion-item>
-
+   <p class="danger" *ngIf="formGroup.controls.logradouro.dirty && !formGroup.controls.logradouro.valid" margin-left>Valor inválido</p>
 
       <ion-item>
         <ion-label stacked>Número</ion-label>
         <ion-input formControlName="numero" type="text"></ion-input>
       </ion-item>
-
+   <p class="danger" *ngIf="formGroup.controls.numero.dirty && !formGroup.controls.numero.valid" margin-left>Valor inválido</p>
       <ion-item>
         <ion-label stacked>Complemento</ion-label>
         <ion-input formControlName="complemento" type="text"></ion-input>
       </ion-item>
-
+    <p class="danger" *ngIf="formGroup.controls.complemento.dirty && !formGroup.controls.complemento.valid" margin-left>Valor inválido</p>
 
       <ion-item>
         <ion-label stacked>Bairro</ion-label>
         <ion-input formControlName="bairro" type="text"></ion-input>
       </ion-item>
+    <p class="danger" *ngIf="formGroup.controls.bairro.dirty && !formGroup.controls.bairro.valid" margin-left>Valor inválido</p>
 
       <ion-item>
         <ion-label stacked>CEP</ion-label>
         <ion-input formControlName="cep" type="text"></ion-input>
       </ion-item>
-
+    <p class="danger" *ngIf="formGroup.controls.cep.dirty && !formGroup.controls.cep.valid" margin-left>Valor inválido</p>  
       <ion-item>
         <ion-label stacked>Telefone 1</ion-label>
         <ion-input formControlName="telefone1" type="text"></ion-input>
       </ion-item>
-
+      <p class="danger" *ngIf="formGroup.controls.telefone1.dirty && !formGroup.controls.telefone1.valid" margin-left>Valor inválido</p>
       <ion-item>
         <ion-label stacked>Telefone 2</ion-label>
         <ion-input formControlName="telefone2" type="text"></ion-input>
@@ -110,7 +114,7 @@
           </ion-select>
       </ion-item>
 
-      <ion-button expand="block" type ="submit" (click)="backHome()">Criar Usuario</ion-button>
+      <ion-button expand="block" type ="submit" (click)="backHome()" [disabled] ="formGroup.invalid">Criar Usuario</ion-button>
 
 
 
