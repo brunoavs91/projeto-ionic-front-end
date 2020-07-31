@@ -97,7 +97,7 @@
 
       <ion-item>
         <ion-label stacked>Estado</ion-label>
-        <ion-select class="custom-options"name="estadoId" (ionChange) = "updateCidades()">
+        <ion-select class="custom-options"formControlName="estadoId" (ionChange) = "updateCidades()">
       
           <ion-select-option *ngFor="let estado of estados; first as f" [value]="estado.id" [selected]="f">{{estado.nome}}</ion-select-option>
           
@@ -108,13 +108,13 @@
 
       <ion-item>
         <ion-label stacked>Cidade</ion-label>
-        <ion-select class="custom-options" name="cidadeId">
+        <ion-select class="custom-options" formControlName="cidadeId">
           
           <ion-select-option *ngFor="let cidade of cidades" [value]="cidade.id">{{cidade.nome}}</ion-select-option>
           </ion-select>
       </ion-item>
 
-      <ion-button expand="block" type ="submit" (click)="backHome()" [disabled] ="!formGroup.valid">Criar Usuario</ion-button>
+      <ion-button expand="block" type ="submit" (click)="showInsert()" [disabled] ="formGroup.invalid">Criar Usuario</ion-button>
 
 
 

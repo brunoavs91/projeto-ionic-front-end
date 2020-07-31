@@ -7,7 +7,7 @@
           <ion-note>Aplicaçao Bruno Vidal</ion-note>
 
           <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages">
-            <ion-item (click)="openPage(p)">
+            <ion-item (click)="openPage(p)"  routerDirection="forward">
               <ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
               <ion-label>{{ p.title }}</ion-label>
             </ion-item>

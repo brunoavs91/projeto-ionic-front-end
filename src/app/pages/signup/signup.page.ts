@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController, MenuController } from '@ionic/angular';
+import { NavController, MenuController, AlertController } from '@ionic/angular';
 import { FormGroup, FormBuilder , Validators} from '@angular/forms';
 
 import { EstadoDTO } from 'src/models/estado.dto';
 import { CidadeDTO } from 'src/models/cidade.dto';
 import { CidadeService } from 'src/services/domain/cidade.service';
 import { EstadoService } from 'src/services/domain/estado.service';
+import { ClienteService } from 'src/services/domain/cliente.service';
 
 @Component({
   selector: 'app-signup',
@@ -22,7 +23,9 @@ export class SignupPage implements OnInit {
     public menu :MenuController,
     public formBuilder : FormBuilder,
     public cidadeService : CidadeService,
-    public estadoService : EstadoService) {
+    public estadoService : EstadoService,
+    public clienteService : ClienteService,
+    public alertCtrl : AlertController) {
 
     this.formGroup = this.formBuilder.group({
     nome :['', [Validators.required, Validators.minLength(5), Validators.maxLength(120)]],
@@ -74,7 +77,29 @@ export class SignupPage implements OnInit {
   }
 
   signupUser(){
+    this.clienteService.insert(this.formGroup.value)
+    .subscribe(response =>{
+      this.showInsert();
+    },error =>{}
+    )
     console.log(this.formGroup.value);
+  }
+
+  showInsert() {
+   let alert = this.alertCtrl.create({
+     header : 'Sucesso',
+     message : 'Cadastro efetuado com sucesso',
+     backdropDismiss : false,
+     buttons: [{
+      text : 'Ok',
+      handler : () => {
+        this.navCtrl.pop();
+      }
+     }
+       
+     ]
+   });
+   alert.then(a => a.present());
   }
 
   backHome(){
