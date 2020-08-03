@@ -28,7 +28,7 @@ export class HomePage implements OnInit {
 
   ngOnInit() {
 
-    if(this.storage.getLocalUser === undefined || this.storage.getLocalUser === null){
+    if(this.creds.email != '' || this.creds.senha != ''){
 
       this.auth.refreshToken()
       .subscribe(response =>{

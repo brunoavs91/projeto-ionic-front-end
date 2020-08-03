@@ -47,7 +47,7 @@ export class ClienteService {
     }
 
     insert(cliente : ClienteDTO){
-      return this.http.post( `${API_CONFIG.baseUrl}/clientes/`,cliente,
+      return this.http.post( `${API_CONFIG.baseUrl}/clientes`,cliente,
       {
         observe: 'response',
         responseType: 'text'
