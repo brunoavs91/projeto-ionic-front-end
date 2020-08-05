@@ -70,8 +70,12 @@ export class HomePage implements OnInit {
   }
 
   signup(){
-    this.navCtrl.navigateForward("signup");
+    this.navCtrl.navigateBack("signup");
+    
    // this.navCtrl.navigateForward("signup");
+  }
+  backHome(){
+    this.navCtrl.navigateBack("home");
   }
 
   
