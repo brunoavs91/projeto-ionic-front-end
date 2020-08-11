@@ -19,6 +19,7 @@ import { ReactiveFormsModule} from '@angular/forms';
 import { SignupPage } from './pages/signup/signup.page';
 import { EstadoService } from 'src/services/domain/estado.service';
 import { CidadeService } from 'src/services/domain/cidade.service';
+import { ProdutoService } from 'src/services/domain/produto.service';
 
 @NgModule({
   declarations: [AppComponent, SignupPage],
@@ -47,7 +48,8 @@ import { CidadeService } from 'src/services/domain/cidade.service';
     StorageService,
     ClienteService,
     EstadoService,
-    CidadeService
+    CidadeService,
+    ProdutoService
   ],
   bootstrap: [AppComponent]
 })

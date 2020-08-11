@@ -28,13 +28,11 @@ export class CategoriasPage implements OnInit {
     error =>{});
   }
 
-  showProdutos(){
-    this.navCtrl.navigateRoot("produtos");
+  showProdutos(categoria_id : string){
+    this.navCtrl.navigateRoot("produtos", {queryParams : {categoria_id}});
     //this.navCtrl.navigateBack("categorias");
   }
-  backCategorias(){
-    this.navCtrl.navigateRoot("categorias");
-  }
+ 
 
   ionViewDidLoad() {
   
