@@ -4,6 +4,7 @@ import { NavController, NavParams } from '@ionic/angular';
 import { ProdutoService } from 'src/services/domain/produto.service';
 import { Router } from '@angular/router';
 import { stringify } from 'querystring';
+import { API_CONFIG } from 'src/config/api.config';
 
 @Component({
   selector: 'app-produtos',
@@ -28,26 +29,28 @@ export class ProdutosPage implements OnInit {
       this.produtoService.findByCategoria(id_categoria)
       .subscribe(response => {
         this.items = response['content'];
+        this.loadImageUrls();
       },
       erro =>{});
     }
 
-/*     this.items =[{
-      id : "1",
-      nome : "Mouse",
-      preco : 80.99
-    },
-  {
-    id : "2",
-    nome : "Teclado",
-    preco : 100.00
-  }];
-  } */
   }
 
 
   backCategorias(){
     this.navCtrl.navigateRoot("categorias");
+  }
+
+  loadImageUrls() {
+    console.log(this.items);
+    for(var i =0; i < this.items.length; i++) {
+      let item = this.items[i];
+      this.produtoService.getSmallImageFromBucket(item.id)
+      .subscribe(response =>{
+        item.imageUrl = `${API_CONFIG.bucketBaseUrl}/prod${item.id}-small.jpg`;
+      },
+      erro =>{})
+    }
   }
 
 }

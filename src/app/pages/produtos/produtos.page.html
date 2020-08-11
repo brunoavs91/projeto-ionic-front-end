@@ -9,17 +9,19 @@
 
 <ion-content>
   <ion-list>
+    
     <button ion-item *ngFor="let item of items">
-
+      <ion-item>
       <ion-thumbnail item-start>
         <img [src]= "item.imageUrl || './assets/img/prod.jpg'" >
 
       </ion-thumbnail>
+      
       <h2>{{item.nome}}</h2>
-      <p>{{item.preco | currency}}</p>
-
+      <span>{{item.valor | currency}}</span>
+    </ion-item>
     </button>
-
+  
   </ion-list>
 
 </ion-content>
