@@ -20,6 +20,8 @@ import { SignupPage } from './pages/signup/signup.page';
 import { EstadoService } from 'src/services/domain/estado.service';
 import { CidadeService } from 'src/services/domain/cidade.service';
 import { ProdutoService } from 'src/services/domain/produto.service';
+import { utils } from 'protractor';
+import { UtilsService } from 'src/services/utils.service';
 
 @NgModule({
   declarations: [AppComponent, SignupPage],
@@ -49,7 +51,8 @@ import { ProdutoService } from 'src/services/domain/produto.service';
     ClienteService,
     EstadoService,
     CidadeService,
-    ProdutoService
+    ProdutoService,
+    UtilsService
   ],
   bootstrap: [AppComponent]
 })
