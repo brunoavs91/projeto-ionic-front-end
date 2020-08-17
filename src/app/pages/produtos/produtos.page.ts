@@ -53,4 +53,8 @@ export class ProdutosPage implements OnInit {
     }
   }
 
+  showDetail(produto_id : string){
+    this.navCtrl.navigateRoot("produto-detail", {queryParams : {produto_id}});
+  }
+
 }
