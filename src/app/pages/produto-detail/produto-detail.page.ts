@@ -26,6 +26,7 @@ export class ProdutoDetailPage implements OnInit {
     this.produtoService.findbyId(resulParam)
     .subscribe(response =>{
       this.item = response;
+      this.getImageUrlIfExists();
     },
     erro =>{})
    
@@ -41,7 +42,7 @@ export class ProdutoDetailPage implements OnInit {
   }
 
   backProdutos(){
-    this.navCtrl.navigateRoot("produtos");
+    this.navCtrl.navigateRoot("categorias");
   }
 
 }

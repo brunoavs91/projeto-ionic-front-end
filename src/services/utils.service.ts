@@ -9,10 +9,10 @@ constructor(private router :Router){
 
 }
   
-getValorNavigation(navigation :any) : string{
+getValorNavigation(valor) : string{
    // let navegation = this.router.getCurrentNavigation();
     
-    let queryParams =JSON.stringify(navigation.extras.queryParams);
+    let queryParams =JSON.stringify(valor.extras.queryParams);
      let valores_param: string[] = queryParams.split(':');
 
     if(valores_param != null){

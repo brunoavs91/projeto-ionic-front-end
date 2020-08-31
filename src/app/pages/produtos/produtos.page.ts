@@ -5,6 +5,8 @@ import { ProdutoService } from 'src/services/domain/produto.service';
 import { Router } from '@angular/router';
 import { stringify } from 'querystring';
 import { API_CONFIG } from 'src/config/api.config';
+import { isUndefined } from 'util';
+import { isEmpty } from 'rxjs/operators';
 
 @Component({
   selector: 'app-produtos',
@@ -20,9 +22,13 @@ export class ProdutosPage implements OnInit {
 
   ngOnInit() {
     let navegation = this.router.getCurrentNavigation();
-    
-    let categoria_id =JSON.stringify(navegation.extras.queryParams);
-     let valoresNav: string[] = categoria_id.split(':');
+    let categoria_id =null;
+    let valoresNav : string[];
+    if(navegation.extras != null && navegation.extras.queryParams != null){
+
+      categoria_id =JSON.stringify(navegation.extras.queryParams);
+      valoresNav = categoria_id.split(':');
+    }
 
     if(categoria_id != null){
       let id_categoria =valoresNav[1].substring(0,1);
@@ -53,7 +59,7 @@ export class ProdutosPage implements OnInit {
     }
   }
 
-  showDetail(produto_id : string){
+  showDetail(produto_id){
     this.navCtrl.navigateRoot("produto-detail", {queryParams : {produto_id}});
   }
 
