@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+
+      <ion-menu-button></ion-menu-button>
+      
+     
+    </ion-buttons>
+
+    <ion-title>Carrinho de Compras</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+
+
+<ion-content>
+
+  <ion-list>
+    <ion-item *ngFor="let item of items">
+      <ion-thumbnail slot="start">
+
+        <img [src]= "item.produto.imageUrl || './assets/img/prod.jpg'">
+      </ion-thumbnail>
+
+        <h2>{{item.produto.nome}}</h2><br/>
+        <p>{{item.produto.valor | currency}}</p><br/>
+        <p>{{item.quantidade}}</p>
+    </ion-item>
+
+
+  </ion-list>
+
+</ion-content>

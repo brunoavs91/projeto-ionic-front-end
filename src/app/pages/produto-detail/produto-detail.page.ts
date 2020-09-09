@@ -5,6 +5,7 @@ import { ProdutoService } from 'src/services/domain/produto.service';
 import { Router } from '@angular/router';
 import { UtilsService } from 'src/services/utils.service';
 import { API_CONFIG } from 'src/config/api.config';
+import { CartService } from 'src/services/domain/cart.service';
 
 
 @Component({
@@ -18,7 +19,8 @@ export class ProdutoDetailPage implements OnInit {
   constructor(public navCtrl: NavController,
     public produtoService : ProdutoService,
     private router :Router,
-    public utilsService : UtilsService) { }
+    public utilsService : UtilsService,
+    public cartService : CartService) { }
 
   ngOnInit() {
  
@@ -43,6 +45,12 @@ export class ProdutoDetailPage implements OnInit {
 
   backProdutos(){
     this.navCtrl.navigateRoot("categorias");
+  }
+
+  addToCart(produto :ProdutoDTO){
+    this.cartService.addProduto(produto);
+    this.navCtrl.navigateRoot("cart");
+
   }
 
 }
