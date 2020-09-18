@@ -11,7 +11,7 @@
   <ion-list>
     
     <button ion-item *ngFor="let item of items" (click)="showDetail(item.id)">
-    <ion-item-sliding>
+    <ion-item>
       <ion-thumbnail item-start>
         <img [src]= "item.imageUrl || './assets/img/prod.jpg'" >
 
@@ -19,7 +19,7 @@
       
       <h2>{{item.nome}}</h2>
       <span>{{item.valor | currency}}</span>
-    </ion-item-sliding>
+    </ion-item>
     </button>
   
   </ion-list>

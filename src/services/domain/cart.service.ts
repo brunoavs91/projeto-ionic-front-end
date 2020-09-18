@@ -63,6 +63,10 @@ decreaseQuantity (produto : ProdutoDTO) : Cart {
     let position = cart.items.findIndex(x => x.produto.id == produto.id);
     if(position != -1){
         cart.items[position].quantidade--;
+
+        if( cart.items[position].quantidade < 1){
+            cart = this.removeProduto(produto);
+        }
     }
     this.storage.setCart(cart);
     return cart;
