@@ -32,6 +32,10 @@ export class CategoriasPage implements OnInit {
     this.navCtrl.navigateRoot("produtos", {queryParams : {categoria_id}});
     //this.navCtrl.navigateBack("categorias");
   }
+
+  carrinhoCompras(){
+    this.navCtrl.navigateRoot("cart"); 
+  }
  
 
   ionViewDidLoad() {

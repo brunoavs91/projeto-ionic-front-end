@@ -8,6 +8,12 @@
 </ion-header>
 
 <ion-content>
+
+  <ion-fab class="carrinho">
+    <ion-fab-button  (click)="carrinhoCompras()"><ion-icon name="cart-outline"></ion-icon></ion-fab-button>
+  </ion-fab>
+
+
   <ion-list>
     
     <button ion-item *ngFor="let item of items" (click)="showDetail(item.id)">

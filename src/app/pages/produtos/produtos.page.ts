@@ -63,4 +63,8 @@ export class ProdutosPage implements OnInit {
     this.navCtrl.navigateRoot("produto-detail", {queryParams : {produto_id}});
   }
 
+  
+  carrinhoCompras(){
+    this.navCtrl.navigateRoot("cart"); 
+  }
 }

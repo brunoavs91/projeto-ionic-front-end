@@ -53,4 +53,8 @@ export class ProdutoDetailPage implements OnInit {
 
   }
 
+  carrinhoCompras(){
+    this.navCtrl.navigateRoot("cart"); 
+  }
+
 }

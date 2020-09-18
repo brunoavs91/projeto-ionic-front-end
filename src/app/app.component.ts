@@ -4,6 +4,7 @@ import { Platform, NavController } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AuthService } from 'src/services/auth.service';
+import { url } from 'inspector';
 
 @Component({
   selector: 'app-root',
@@ -23,6 +24,12 @@ export class AppComponent implements OnInit {
       url: 'categorias',
       icon: 'home'
     },
+    {
+      title: 'Carrinho',
+      url: 'cart',
+      icon: 'home'
+    },
+
     {title: 'Logout',  url: '',  icon: '' }
   ];
   
