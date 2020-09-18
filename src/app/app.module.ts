@@ -20,7 +20,7 @@ import { SignupPage } from './pages/signup/signup.page';
 import { EstadoService } from 'src/services/domain/estado.service';
 import { CidadeService } from 'src/services/domain/cidade.service';
 import { ProdutoService } from 'src/services/domain/produto.service';
-import { utils } from 'protractor';
+
 import { UtilsService } from 'src/services/utils.service';
 import { CartService } from 'src/services/domain/cart.service';
 

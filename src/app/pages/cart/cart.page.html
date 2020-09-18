@@ -18,16 +18,20 @@
 <ion-content>
 
   <ion-list>
-    <ion-item *ngFor="let item of items">
+    <ion-item-sliding *ngFor="let item of items">
+      
       <ion-thumbnail slot="start">
 
         <img [src]= "item.produto.imageUrl || './assets/img/prod.jpg'">
       </ion-thumbnail>
-
-        <h2>{{item.produto.nome}}</h2><br/>
-        <p>{{item.produto.valor | currency}}</p><br/>
-        <p>{{item.quantidade}}</p>
-    </ion-item>
+    
+        <h2>{{item.produto.nome}}</h2>
+        <p>{{item.produto.valor | currency}}</p>
+        <ion-icon class="nolinebreak" name="remove-circle-outline"  color="primary"></ion-icon>
+        <p class="nolinebreak"> {{item.quantidade}}</p>
+        <ion-icon class="nolinebreak" name="add-circle-outline" color="primary"></ion-icon>
+        <ion-icon class="nolinebreak" name="trash-outline" color="danger"></ion-icon>
+      </ion-item-sliding>
 
 
   </ion-list>
