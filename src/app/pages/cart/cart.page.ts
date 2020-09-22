@@ -59,4 +59,11 @@ export class CartPage implements OnInit {
   goOn(){
    this.navCtrl.navigateRoot("categorias");
   }
+
+  checkout(){
+    this.navCtrl.navigateForward("pick-address");
+
+    this.navCtrl.navigateRoot("pick-address");
+    
+  }
 }

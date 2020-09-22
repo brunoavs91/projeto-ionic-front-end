@@ -2,3 +2,14 @@
         float: left;
         padding-right: 10px;
 }
+
+.total{
+    margin-left: 160px;
+}
+
+.content-container{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
