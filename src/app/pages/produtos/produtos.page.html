@@ -3,9 +3,9 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
 
-      <ion-icon name="arrow-back-outline" (click) ="backCategorias()"></ion-icon>
-      
-     
+      <ion-icon name="arrow-back-outline" (click)="backCategorias()"></ion-icon>
+
+
     </ion-buttons>
 
     <ion-title>Produtos</ion-title>
@@ -15,32 +15,34 @@
 <ion-content>
 
   <ion-fab class="carrinho">
-    <ion-fab-button  (click)="carrinhoCompras()"><ion-icon name="cart-outline"></ion-icon></ion-fab-button>
+    <ion-fab-button (click)="carrinhoCompras()">
+      <ion-icon name="cart-outline"></ion-icon>
+    </ion-fab-button>
   </ion-fab>
 
 
   <ion-list>
-    
     <button ion-item *ngFor="let item of items" (click)="showDetail(item.id)">
-    <ion-item>
-      <ion-thumbnail item-start>
-        <img [src]= "item.imageUrl || './assets/img/prod.jpg'" >
+      <ion-item>
+        <div class="content-container">
+          <ion-thumbnail item-start>
+            <img [src]="item.imageUrl || './assets/img/prod.jpg'">
 
-      </ion-thumbnail>
+          </ion-thumbnail>
 
-      <div class="content-container">
-        <div>
-        <h2> {{item.nome}}</h2>
+
+          <div>
+            <h2> {{item.nome}}</h2>
+
+
+            <span> {{item.valor | currency}}</span>
+          </div>
+
+
         </div>
-        <div>
-        <span> {{item.valor | currency}}</span>
-
-      </div>
-      </div>
-     
-    </ion-item>
+      </ion-item>
     </button>
-  
+
   </ion-list>
 
 </ion-content>
