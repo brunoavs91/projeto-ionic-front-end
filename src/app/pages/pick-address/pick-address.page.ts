@@ -10,9 +10,9 @@ import { EnderecoDTO } from 'src/models/endereco.dto';
   styleUrls: ['./pick-address.page.scss'],
 })
 export class PickAddressPage implements OnInit {
-
+  items : EnderecoDTO[];
  
-  constructor() { }
+  constructor(navCtrl : NavController, router : Router) { }
 
   ngOnInit() {
 
